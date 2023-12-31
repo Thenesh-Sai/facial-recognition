@@ -12,3 +12,14 @@ image_location: str,
 
  pillow_image = Image.fromarray(input_image)
  draw = ImageDraw.Draw(pillow_image)
+for bounding_box, unknown_encoding in zip(
+ input_face_locations, input_face_encodings
+ ):
+ name = _recognize_face(unknown_encoding, loaded_encodings)
+ if not name:
+ name = "Unknown"
+ # Removed print(name, bounding_box)
+ _display_face(draw, bounding_box, name)
+
+ del draw
+ pillow_image.show()
