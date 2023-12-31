@@ -1,0 +1,14 @@
+from PIL import Image, ImageDraw
+
+# ...
+
+def recognize_faces(
+image_location: str,
+ model: str = "hog",
+ encodings_location: Path = DEFAULT_ENCODINGS_PATH,
+) -> None:
+
+ # ...
+
+ pillow_image = Image.fromarray(input_image)
+ draw = ImageDraw.Draw(pillow_image)
